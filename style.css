@@ -1,0 +1,408 @@
+/* =========================================================
+   GHOST LEDGER — stylesheet
+   ========================================================= */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* ── Desktop canvas ───────────────────────────────────── */
+#desktop {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-image: url('images/green-back.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ── Boot terminal (centered on login) ────────────────── */
+#boot-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ── Base terminal window ─────────────────────────────── */
+.terminal {
+    background-color: rgba(1, 10, 1, 0.97);
+    border: 2px solid #0f0;
+    border-radius: 4px;
+    box-shadow: 0 0 22px rgba(0, 255, 0, 0.38),
+                inset 0 0 14px rgba(0, 255, 0, 0.04);
+}
+
+#boot-terminal {
+    width: 640px;
+    max-width: 96vw;
+}
+
+/* ── Title bar ────────────────────────────────────────── */
+.title-bar {
+    background: rgba(0, 18, 0, 0.98);
+    border-bottom: 1px solid #0c0;
+    padding: 6px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: move;
+    user-select: none;
+}
+
+.close-btn {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0f0;
+    box-shadow: 0 0 6px #0f0;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s, box-shadow 0.15s;
+}
+
+.close-btn:hover {
+    background: #f44;
+    box-shadow: 0 0 8px #f44;
+}
+
+/* Blinking status dot in boot title bar */
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #0f0;
+    box-shadow: 0 0 5px #0f0;
+    animation: blink 1.1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+}
+
+/* ── Boot output ──────────────────────────────────────── */
+#boot-output {
+    padding: 16px 20px 8px;
+    min-height: 260px;
+    max-height: 420px;
+    overflow-y: auto;
+    font-size: 13.5px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-break: break-word;
+    scrollbar-width: thin;
+    scrollbar-color: #0f0 #111;
+}
+
+#boot-output::-webkit-scrollbar        { width: 7px; }
+#boot-output::-webkit-scrollbar-track  { background: #0a0a0a; }
+#boot-output::-webkit-scrollbar-thumb  { background: #0f0; border-radius: 4px; }
+
+/* ── Login input ──────────────────────────────────────── */
+#login-area {
+    padding: 4px 20px 14px;
+    border-top: 1px solid rgba(0, 255, 0, 0.22);
+}
+
+.login-line {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.prompt-text {
+    font-size: 13.5px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+#login-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13.5px;
+    caret-color: #0f0;
+    letter-spacing: 1px;
+}
+
+/* ── Connect overlay ──────────────────────────────────── */
+#connect-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.93);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    gap: 36px;
+}
+
+.ascii-logo {
+    color: #0f0;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    text-align: center;
+    text-shadow: 0 0 12px #0f0;
+    line-height: 1.4;
+    white-space: pre;
+    letter-spacing: 0;
+}
+
+#connect-btn {
+    background: #000;
+    color: #0f0;
+    border: 2px solid #0f0;
+    border-radius: 3px;
+    padding: 13px 44px;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    letter-spacing: 4px;
+    cursor: pointer;
+    box-shadow: 0 0 14px rgba(0, 255, 0, 0.35);
+    transition: all 0.2s ease;
+}
+
+#connect-btn:hover {
+    background: #0f0;
+    color: #000;
+    box-shadow: 0 0 24px rgba(0, 255, 0, 0.75);
+}
+
+/* ── Desktop file icons ───────────────────────────────── */
+.file-icon {
+    position: absolute;
+    width: 96px;
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    z-index: 10;
+    transition: transform 0.12s ease;
+}
+
+.file-icon:hover  { transform: scale(1.08); }
+.file-icon:active { transform: scale(0.93); }
+
+.icon-visual {
+    width: 70px;
+    height: 60px;
+    margin: 0 auto;
+    border: 2px solid #0f0;
+    background: rgba(0, 14, 0, 0.88);
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    border-radius: 0 3px 3px 3px;
+}
+
+/* folder tab at top-left */
+.icon-visual::before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: -2px;
+    width: 28px;
+    height: 9px;
+    background: #0f0;
+    border-radius: 3px 3px 0 0;
+}
+
+.file-icon:hover .icon-visual {
+    box-shadow: 0 0 16px rgba(0, 255, 0, 0.65);
+    border-color: #3f3;
+}
+
+.icon-label {
+    color: #0f0;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 8px;
+    text-shadow: 0 0 4px #0f0;
+    line-height: 1.3;
+    word-break: break-all;
+}
+
+.file-icon:hover .icon-label {
+    text-shadow: 0 0 9px #0f0;
+}
+
+/* danger variant (GHOST_VAULT) */
+.file-icon.danger .icon-visual {
+    border-color: #f55;
+    box-shadow: 0 0 8px rgba(255, 60, 60, 0.35);
+}
+.file-icon.danger .icon-visual::before { background: #f55; }
+.file-icon.danger .icon-label {
+    color: #f55;
+    text-shadow: 0 0 4px #f55;
+}
+.file-icon.danger:hover .icon-visual {
+    box-shadow: 0 0 16px rgba(255, 60, 60, 0.65);
+    border-color: #f88;
+}
+.file-icon.danger:hover .icon-label { text-shadow: 0 0 9px #f55; }
+
+/* ── Popup windows ────────────────────────────────────── */
+.win {
+    position: absolute;
+    max-width: 96vw;
+    z-index: 2000;
+}
+
+.win-content {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #0f0 #111;
+}
+
+.win-content::-webkit-scrollbar       { width: 7px; }
+.win-content::-webkit-scrollbar-track { background: #0a0a0a; }
+.win-content::-webkit-scrollbar-thumb { background: #0f0; border-radius: 4px; }
+
+.win-content pre {
+    margin: 0;
+    padding: 16px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #0f0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* ── Vault input bar ──────────────────────────────────── */
+.vault-input-area {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid rgba(0, 255, 0, 0.22);
+    padding: 8px 16px;
+    gap: 4px;
+}
+
+.vault-prompt {
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.vault-input-area input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    caret-color: #0f0;
+}
+
+.vault-input-area input::placeholder {
+    color: rgba(0, 255, 0, 0.35);
+}
+
+/* ── Vault unlock message ─────────────────────────────── */
+.unlock-msg {
+    color: #0f0;
+    animation: glow-pulse 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+    from { text-shadow: 0 0 6px #0f0; }
+    to   { text-shadow: 0 0 18px #0f0, 0 0 30px #0f0; }
+}
+
+/* ── Window flash (already open) ──────────────────────── */
+@keyframes flash-warn {
+    0%, 100% { border-color: #0f0; box-shadow: 0 0 22px rgba(0,255,0,0.38); }
+    50%       { border-color: #ff0; box-shadow: 0 0 22px rgba(255,255,0,0.55); }
+}
+
+.flashing {
+    animation: flash-warn 0.28s ease 3;
+}
+
+/* ── Finestra finale (codici estratti) ────────────────── */
+#finale-win {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 580px;
+    max-width: 96vw;
+    z-index: 9000;
+    animation: finale-appear 0.5s ease;
+}
+
+@keyframes finale-appear {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.codice-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,255,0,0.15);
+    margin: 8px 0;
+    border-radius: 3px;
+    background: rgba(0,255,0,0.03);
+}
+
+.codice-label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    flex-shrink: 0;
+    width: 80px;
+}
+
+.codice-valore {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    text-shadow: 0 0 12px currentColor, 0 0 24px currentColor;
+    animation: glow-pulse 1.1s ease-in-out infinite alternate;
+}
+
+.codice-1 { color: #ff4444; }
+.codice-2 { color: #ffcc00; }
+.codice-3 { color: #00ccff; }
+
+.finale-header {
+    color: #0f0;
+    font-weight: bold;
+}
+
+.finale-divider {
+    border: none;
+    border-top: 1px solid rgba(0,255,0,0.3);
+    margin: 4px 0;
+}
