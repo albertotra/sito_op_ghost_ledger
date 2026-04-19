@@ -504,7 +504,7 @@ Inserire entrambi i codici (separati da spazio):`,
                 inp.value = '';
                 inp.placeholder = '[!!] Codici errati — riprovare';
                 setTimeout(() => {
-                    inp.placeholder = 'es.  10110100  01101001';
+                    inp.placeholder = '...';
                 }, 1800);
             }
         });
