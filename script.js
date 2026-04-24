@@ -289,7 +289,7 @@ function apriManifest() {
 ═══════════════════════════════════════════</span>
 Classificazione : ULTRA SEGRETO
 Partizione      : /ghost/encrypted/ledger
-Ultimo Accesso  : 2024-02-14 03:47:22 UTC
+Ultimo Accesso  : 2026-04-14 03:47:22 UTC
 
 <span style="color:#ff0">PANORAMICA:</span>
   Questa partizione contiene file di prova relativi
@@ -320,19 +320,19 @@ function apriTransactionLog() {
     creaFinestra('TRANSACTION_LOG', 690, 390,
 `<span style="color:#3f3;font-weight:bold">GHOST LEDGER — REGISTRO TRANSAZIONI
 ═══════════════════════════════════════════════════════════</span>
-Ultima sincronizzazione : 2024-02-14 04:12:07 UTC
+Ultima sincronizzazione : 2026-04-14 04:12:07 UTC
 Voci                    : 8  |  Segnalate : 4  |  Pulite : 4
 
 RIF        DATA           IMPORTO      CONTO              STATUS
 ───────────────────────────────────────────────────────────────────
-TX-001     2023-11-04     $14.200      A-GHOST-447        <span style="color:#0f0;font-weight:bold">[ 1 ]</span>
-TX-002     2023-11-07     $ 8.500      B-SPECTER-12       <span style="color:#3a3a3a">[ 0 ]</span>
-TX-003     2023-11-09     $31.700      A-GHOST-447        <span style="color:#0f0;font-weight:bold">[ 1 ]</span>
-TX-004     2023-11-12     $ 2.900      C-WRAITH-99        <span style="color:#0f0;font-weight:bold">[ 1 ]</span>
-TX-005     2023-11-15     $19.300      A-GHOST-447        <span style="color:#3a3a3a">[ 0 ]</span>
-TX-006     2023-11-18     $44.600      B-SPECTER-12       <span style="color:#0f0;font-weight:bold">[ 1 ]</span>
-TX-007     2023-11-22     $ 7.100      A-GHOST-447        <span style="color:#3a3a3a">[ 0 ]</span>
-TX-008     2023-11-25     $88.000      A-GHOST-447        <span style="color:#3a3a3a">[ 0 ]</span>
+TX-001     2026-03-04     $14.200      A-GHOST-447        <span style="color:#0f0;font-weight:bold">[ 1 ]</span>
+TX-002     2026-03-07     $ 8.500      B-SPECTER-12       <span style="color:#3a3a3a">[ 0 ]</span>
+TX-003     2026-03-09     $31.700      A-GHOST-447        <span style="color:#0f0;font-weight:bold">[ 1 ]</span>
+TX-004     2026-03-12     $ 2.900      C-WRAITH-99        <span style="color:#0f0;font-weight:bold">[ 1 ]</span>
+TX-005     2026-03-15     $19.300      A-GHOST-447        <span style="color:#3a3a3a">[ 0 ]</span>
+TX-006     2026-03-18     $44.600      B-SPECTER-12       <span style="color:#0f0;font-weight:bold">[ 1 ]</span>
+TX-007     2026-03-22     $ 7.100      A-GHOST-447        <span style="color:#3a3a3a">[ 0 ]</span>
+TX-008     2026-03-25     $88.000      A-GHOST-447        <span style="color:#3a3a3a">[ 0 ]</span>
 ───────────────────────────────────────────────────────────────────
 VOLUME TOTALE : $216.300
 
@@ -346,7 +346,7 @@ function apriNetworkScan() {
     creaFinestra('NETWORK_SCAN', 640, 390,
 `<span style="color:#3f3;font-weight:bold">GHOST LEDGER — SCANSIONE SETTORE DI RETE
 ═══════════════════════════════════════════════════════════</span>
-Avviata    : 2024-02-14 04:05:33 UTC
+Avviata    : 2026-04-14 04:05:33 UTC
 Protocollo : Ghost-Ping v4.1
 Settore    : 10.0.0.0/29
 
@@ -374,18 +374,18 @@ function apriAccessLog() {
 `<span style="color:#3f3;font-weight:bold">GHOST LEDGER — REGISTRO ACCESSI
 ═══════════════════════════════════════════════════════════</span>
 Log di sessione per la partizione /ghost/ledger
-Generato    : 2024-02-14 04:14:55 UTC
+Generato    : 2026-04-14 04:14:55 UTC
 
 TIMESTAMP              EVENTO
 ──────────────────────────────────────────────────────────────
-2024-02-14 01:12:03    MOUNT    ghost_partition_7
-2024-02-14 01:12:04    DECRYPT  key_store_alpha
-2024-02-14 01:12:07    READ     transaction_log.dat
-2024-02-14 01:15:44    EXEC     network_scan --sector 10.0.0.0/29
-2024-02-14 01:15:47    WRITE    network_scan_results.dat
-2024-02-14 01:17:02    ACCESS   ghost_vault --verify
-2024-02-14 01:17:03    ERROR    Autenticazione fallita
-2024-02-14 01:18:31    EXIT     sessione terminata
+2026-04-14 01:12:03    MOUNT    ghost_partition_7
+2026-04-14 01:12:04    DECRYPT  key_store_alpha
+2026-04-14 01:12:07    READ     transaction_log.dat
+2026-04-14 01:15:44    EXEC     network_scan --sector 10.0.0.0/29
+2026-04-14 01:15:47    WRITE    network_scan_results.dat
+2026-04-14 01:17:02    ACCESS   ghost_vault --verify
+2026-04-14 01:17:03    ERROR    Autenticazione fallita
+2026-04-14 01:18:31    EXIT     sessione terminata
 ──────────────────────────────────────────────────────────────
 
 <span style="color:#ff0">NOTA SUL PROTOCOLLO DI SCANSIONE:</span>
@@ -440,7 +440,7 @@ function apriGhostVault() {
     creaFinestra('GHOST_VAULT', 540, 310,
 `<span style="color:#f55;font-weight:bold">GHOST LEDGER — CASSAFORTE SICURA
 ═══════════════════════════════════════════════════════════</span>
-ID Cassaforte : GV-447-2024
+ID Cassaforte : GV-447-2026
 Stato         : <span style="color:#f55;font-weight:bold">BLOCCATA</span>
 Cifratura     : Ghost-AES-256
 
@@ -454,7 +454,7 @@ Cifratura     : Ghost-AES-256
 ╚══════════════════════════════════════╝</span>
 
 Pacchetto evidenze:
-  Registri finanziari          2019 – 2024
+  Registri finanziari          2022 – 2026
   Documentazione bonifici      847 file
   Intercettazioni comunicazioni  1.203 voci
 
@@ -530,7 +530,7 @@ function mostraFinale() {
     /* barra del titolo */
     const titleBar = document.createElement('div');
     titleBar.className = 'title-bar';
-    titleBar.innerHTML = '<span>ghost://evidenze_estratte</span>';
+    titleBar.innerHTML = '<span>ghost://credenziali_estratte</span>';
 
     const chiudiBtn = document.createElement('div');
     chiudiBtn.className = 'close-btn';
@@ -543,57 +543,56 @@ function mostraFinale() {
 
     const pre = document.createElement('pre');
     pre.innerHTML =
-`<span class="finale-header">GHOST LEDGER — PACCHETTO EVIDENZE ESTRATTO
+`<span class="finale-header">GHOST LEDGER — CREDENZIALI BANCARIE ESTRATTE
 ═══════════════════════════════════════════════════════</span>
 
   Decrittazione completata.
-  Dati trasferiti al canale sicuro dell'operatore.
-  Sessione ghost sigillata.
+  Credenziali di accesso al portale bancario rilevate
+  nel pacchetto cifrato. Portale ora accessibile.
 
 <hr class="finale-divider">
-  CODICI ESTRATTI:
+  NEXUS FINANCIAL GROUP — ACCESSO OPERATORE
 <hr class="finale-divider">
 `;
-
     content.appendChild(pre);
 
-    /* 3 righe con i codici */
-    const codici = [
-        { label: 'CODICE-1', valore: '11001010', cls: 'codice-1' },
-        { label: 'CODICE-2', valore: '01110011', cls: 'codice-2' },
-        { label: 'CODICE-3', valore: '10001101', cls: 'codice-3' },
-    ];
+    /* username */
+    const usernameRow = document.createElement('div');
+    usernameRow.className = 'codice-row';
+    usernameRow.innerHTML =
+        '<span class="codice-label">USERNAME</span>' +
+        '<span class="codice-valore codice-1" style="font-size:20px;letter-spacing:4px">operatore.447</span>';
+    content.appendChild(usernameRow);
 
-    codici.forEach(c => {
-        const riga = document.createElement('div');
-        riga.className = 'codice-row';
+    /* password */
+    const passwordRow = document.createElement('div');
+    passwordRow.className = 'codice-row';
+    passwordRow.innerHTML =
+        '<span class="codice-label">PASSWORD</span>' +
+        '<span class="codice-valore codice-2" style="font-size:20px;letter-spacing:4px">Gh05t_S3ct0r</span>';
+    content.appendChild(passwordRow);
 
-        const lbl = document.createElement('span');
-        lbl.className = 'codice-label';
-        lbl.textContent = c.label;
+    /* link al portale bancario */
+    const linkWrapper = document.createElement('div');
+    linkWrapper.style.cssText = 'padding: 20px 24px 8px;';
+    const link = document.createElement('a');
+    link.href = 'banca/index.html';
+    link.target = '_blank';
+    link.className = 'portale-link';
+    link.textContent = '→  ACCEDI AL PORTALE NEXUS FINANCIAL GROUP';
+    linkWrapper.appendChild(link);
+    content.appendChild(linkWrapper);
 
-        const val = document.createElement('span');
-        val.className = `codice-valore ${c.cls}`;
-        val.textContent = c.valore;
-
-        riga.appendChild(lbl);
-        riga.appendChild(val);
-        content.appendChild(riga);
-    });
-
-    /* nota finale */
-    const nota = document.createElement('pre');
-    nota.innerHTML =
-`
-<hr class="finale-divider">
-<span style="color:#555;font-size:11px">  Consegnare i codici all'operatore autorizzato.</span>`;
-    content.appendChild(nota);
+    const notaPre = document.createElement('pre');
+    notaPre.innerHTML =
+`\n<hr class="finale-divider">
+<span style="color:#555;font-size:11px">  Sessione ghost sigillata. Consegnare i dati all'operatore autorizzato.</span>`;
+    content.appendChild(notaPre);
 
     win.appendChild(titleBar);
     win.appendChild(content);
     document.getElementById('desktop').appendChild(win);
 
-    /* 4. Rendi trascinabile ma mantienila centrata con fixed (definito in CSS) */
     impostaTranscinabile(win, titleBar);
 }
 

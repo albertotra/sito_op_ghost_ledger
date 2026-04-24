@@ -348,13 +348,13 @@ html, body {
     animation: flash-warn 0.28s ease 3;
 }
 
-/* ── Finestra finale (codici estratti) ────────────────── */
+/* ── Finestra finale (credenziali estratte) ───────────── */
 #finale-win {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 580px;
+    width: 640px;
     max-width: 96vw;
     z-index: 9000;
     animation: finale-appear 0.5s ease;
@@ -395,6 +395,30 @@ html, body {
 .codice-1 { color: #ff4444; }
 .codice-2 { color: #ffcc00; }
 .codice-3 { color: #00ccff; }
+
+/* ── Link portale bancario (finestra finale) ──────────── */
+.portale-link {
+    display: inline-block;
+    color: #0af;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border: 1px solid rgba(0, 170, 255, 0.5);
+    padding: 10px 20px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(0, 170, 255, 0.2);
+    text-shadow: 0 0 8px #0af;
+    transition: all 0.2s ease;
+}
+
+.portale-link:hover {
+    background: rgba(0, 170, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.55);
+    text-shadow: 0 0 14px #0af;
+    border-color: #0af;
+}
 
 .finale-header {
     color: #0f0;
