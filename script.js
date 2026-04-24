@@ -36,13 +36,14 @@ const righeAvvio = [
     '  [OK] Interfaccia di rete .................... IN ATTESA',
     '  [OK] Partizione ghost ....................... MONTATA',
     '  [OK] Daemon di controllo .................... ATTIVO',
+    '  [OK] Identificazione target ................. NEXUS FINANCIAL GROUP',
     '',
     '  [!!] ALLERTA: 3 tentativo/i di accesso non autorizzato',
     '  [!!] Tutte le sessioni vengono monitorate e registrate',
     '',
     '════════════════════════════════════════════════════',
     '',
-    '  Inserire il codice di accesso per continuare:',
+    '  Inserire il codice operatore per sbloccare la partizione:',
     '',
 ];
 
@@ -66,14 +67,18 @@ function mostraOverlayConnessione() {
 ║                                           ║
 ║      G H O S T   L E D G E R             ║
 ║                                           ║
-║      Terminale di Accesso alla            ║
-║      Partizione Finanziaria Sicura v2.3   ║
+║      Sistema di Decriptazione             ║
+║      Credenziali Finanziarie v2.3         ║
 ║                                           ║
 ╚═══════════════════════════════════════════╝`;
 
+    const mission = document.createElement('p');
+    mission.id = 'overlay-mission';
+    mission.textContent = 'Obiettivo: recuperare le credenziali cifrate del portale NEXUS FINANCIAL GROUP.';
+
     const btn = document.createElement('button');
     btn.id = 'connect-btn';
-    btn.textContent = 'CONNETTI';
+    btn.textContent = 'AVVIA SESSIONE';
     btn.addEventListener('click', () => {
         richiediSchermIntero();
         overlay.remove();
@@ -81,6 +86,7 @@ function mostraOverlayConnessione() {
     });
 
     overlay.appendChild(logo);
+    overlay.appendChild(mission);
     overlay.appendChild(btn);
     document.body.appendChild(overlay);
 }
@@ -141,10 +147,10 @@ function gestisciLogin(raw) {
     if (val.toUpperCase() === PASSWORD) {
         aggiungiRigaBoot('  > ' + val);
         aggiungiRigaBoot('');
-        aggiungiRigaBoot('  [OK] Codice di accesso accettato');
-        aggiungiRigaBoot('  [OK] Caricamento ambiente utente ...');
-        aggiungiRigaBoot('  [OK] Decrittazione partizione ghost ...');
-        aggiungiRigaBoot('  [OK] Accesso concesso — Benvenuto, OPERATORE');
+        aggiungiRigaBoot('  [OK] Codice operatore accettato');
+        aggiungiRigaBoot('  [OK] Caricamento partizione cifrata ...');
+        aggiungiRigaBoot('  [OK] Decrittazione livello 1 completata ...');
+        aggiungiRigaBoot('  [OK] Accesso concesso — Avvio recupero credenziali NEXUS');
         document.getElementById('login-area').style.display = 'none';
         setTimeout(avviaDesktop, 1300);
     } else {
@@ -292,9 +298,10 @@ Partizione      : /ghost/encrypted/ledger
 Ultimo Accesso  : 2026-04-14 03:47:22 UTC
 
 <span style="color:#ff0">PANORAMICA:</span>
-  Questa partizione contiene file di prova relativi
-  a due conti finanziari classificati. Ogni conto è
-  protetto da una chiave di settore binaria a 8 bit.
+  Questa partizione cifrata contiene i file necessari
+  per ricostruire le credenziali di accesso al portale
+  bancario NEXUS FINANCIAL GROUP. Ogni credenziale è
+  protetta da una chiave di settore binaria a 8 bit.
 
 <span style="color:#ff0">ISTRUZIONI DI RECUPERO:</span>
   ► <span style="color:#3f3">CODICE ALPHA</span>
@@ -438,27 +445,28 @@ CLASSIFICAZIONE: INTERNO — NON DISTRIBUIRE
 
 function apriGhostVault() {
     creaFinestra('GHOST_VAULT', 540, 310,
-`<span style="color:#f55;font-weight:bold">GHOST LEDGER — CASSAFORTE SICURA
+`<span style="color:#f55;font-weight:bold">GHOST LEDGER — CASSAFORTE CREDENZIALI
 ═══════════════════════════════════════════════════════════</span>
 ID Cassaforte : GV-447-2026
-Stato         : <span style="color:#f55;font-weight:bold">BLOCCATA</span>
+Target        : NEXUS FINANCIAL GROUP
+Stato         : <span style="color:#f55;font-weight:bold">CREDENZIALI CIFRATE — ACCESSO BLOCCATO</span>
 Cifratura     : Ghost-AES-256
 
 <span style="color:#444">╔══════════════════════════════════════╗
-║       PANNELLO DI ACCESSO VAULT      ║
+║   DECRIPTAZIONE CREDENZIALI NEXUS    ║
 ╠══════════════════════════════════════╣
 ║  CODICE ALPHA :  ████████            ║
 ║  CODICE BETA  :  ████████            ║
 ╠══════════════════════════════════════╣
-║  STATO : IN ATTESA DI AUTORIZZAZIONE ║
+║  STATO : IN ATTESA DEI CODICI        ║
 ╚══════════════════════════════════════╝</span>
 
-Pacchetto evidenze:
-  Registri finanziari          2022 – 2026
-  Documentazione bonifici      847 file
-  Intercettazioni comunicazioni  1.203 voci
+Contenuto cifrato:
+  Credenziali portale bancario NEXUS   1 set
+  Registri finanziari allegati         2022 – 2026
+  Documentazione operativa             847 file
 
-Inserire entrambi i codici (separati da spazio):`,
+Inserire i codici ALPHA e BETA per decriptare le credenziali (separati da spazio):`,
 
     /* postCrea: barra di input del vault */
     (win, pre) => {
@@ -488,13 +496,13 @@ Inserire entrambi i codici (separati da spazio):`,
 ║  CODICE ALPHA :  10110100            ║
 ║  CODICE BETA  :  01101001            ║
 ╠══════════════════════════════════════╣
-║  ACCESSO CONCESSO — OTTIMO LAVORO    ║
+║  CREDENZIALI NEXUS — DECRIPTATE      ║
 ╚══════════════════════════════════════╝
 
-  Decrittazione pacchetto evidenze ...
+  Decriptazione credenziali NEXUS FINANCIAL GROUP ...
   [████████████████████] 100%
 
-  Trasferimento al canale sicuro in corso ...
+  Estrazione credenziali bancarie completata ...
 </span>`;
                 barra.remove();
 
@@ -530,7 +538,7 @@ function mostraFinale() {
     /* barra del titolo */
     const titleBar = document.createElement('div');
     titleBar.className = 'title-bar';
-    titleBar.innerHTML = '<span>ghost://credenziali_estratte</span>';
+    titleBar.innerHTML = '<span>ghost://nexus_access — credenziali decriptate</span>';
 
     const chiudiBtn = document.createElement('div');
     chiudiBtn.className = 'close-btn';
@@ -543,12 +551,14 @@ function mostraFinale() {
 
     const pre = document.createElement('pre');
     pre.innerHTML =
-`<span class="finale-header">GHOST LEDGER — CREDENZIALI BANCARIE ESTRATTE
+`<span class="finale-header">GHOST LEDGER — CREDENZIALI NEXUS DECRIPTATE
 ═══════════════════════════════════════════════════════</span>
 
-  Decrittazione completata.
-  Credenziali di accesso al portale bancario rilevate
-  nel pacchetto cifrato. Portale ora accessibile.
+  Decriptazione completata con successo.
+  Le credenziali di accesso al portale bancario
+  NEXUS FINANCIAL GROUP sono state estratte.
+
+  Usa username e password qui sotto per accedere.
 
 <hr class="finale-divider">
   NEXUS FINANCIAL GROUP — ACCESSO OPERATORE
@@ -586,7 +596,7 @@ function mostraFinale() {
     const notaPre = document.createElement('pre');
     notaPre.innerHTML =
 `\n<hr class="finale-divider">
-<span style="color:#555;font-size:11px">  Sessione ghost sigillata. Consegnare i dati all'operatore autorizzato.</span>`;
+<span style="color:#555;font-size:11px">  Sessione ghost sigillata. Credenziali NEXUS estratte e pronte all'uso.</span>`;
     content.appendChild(notaPre);
 
     win.appendChild(titleBar);
