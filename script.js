@@ -471,7 +471,7 @@ Inserire entrambi i codici (separati da spazio):`,
 
         const inp = document.createElement('input');
         inp.type = 'text';
-        inp.placeholder = 'es.  10110100  01101001';
+        inp.placeholder = '...';
         inp.autocomplete = 'off';
         inp.spellcheck = false;
 
