@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS FINANCIAL GROUP — Profilo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>if (!sessionStorage.getItem('nexus_auth')) window.location.replace('index.html');</script>
+
+<nav class="bank-nav">
+    <div class="nav-brand">NEXUS FINANCIAL GROUP</div>
+    <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">Panoramica</a>
+        <a href="conti.html" class="nav-link">Conti</a>
+        <a href="transazioni.html" class="nav-link">Transazioni</a>
+        <a href="bonifici.html" class="nav-link">Bonifici</a>
+        <a href="profilo.html" class="nav-link active">Profilo</a>
+        <a href="index.html" class="nav-link nav-exit"
+           onclick="sessionStorage.removeItem('nexus_auth')">Esci</a>
+    </div>
+</nav>
+
+<div class="page-content">
+
+    <div class="section-label">ACCOUNT</div>
+    <div class="section-title">PROFILO OPERATORE</div>
+
+    <div class="section-box">
+        <div class="section-box-header">Dati identificativi</div>
+        <div class="section-box-body">
+
+            <div class="profile-field">
+                <div class="profile-label">ID Operatore</div>
+                <div class="profile-value">447</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Username</div>
+                <div class="profile-value">operatore.447</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Nome Completo</div>
+                <div class="profile-value redacted">████████████████████</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Codice Fiscale</div>
+                <div class="profile-value redacted">███████████████</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Email</div>
+                <div class="profile-value redacted">███████████@████████.com</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Telefono</div>
+                <div class="profile-value redacted">+39 ███ ███ ████</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section-box">
+        <div class="section-box-header">Dati di accesso e sicurezza</div>
+        <div class="section-box-body">
+
+            <div class="profile-field">
+                <div class="profile-label">Livello Accesso</div>
+                <div class="profile-value">OPERATORE &mdash; LIVELLO 3</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Nodo Assegnato</div>
+                <div class="profile-value">GHOST-CLUSTER &mdash; /ghost/encrypted/ledger</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Autenticazione</div>
+                <div class="profile-value">Password + Token OTP (dispositivo registrato)</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Data Registrazione</div>
+                <div class="profile-value">12/03/2019</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Ultimo Accesso</div>
+                <div class="profile-value">14/04/2026 &mdash; 03:47 UTC</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">IP Ultima Sessione</div>
+                <div class="profile-value">185.242.xxx.xxx &mdash; VPN rilevata</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-label">Stato Account</div>
+                <div class="profile-value">
+                    <span class="badge badge-warn">SOTTO VERIFICA AML</span>
+                    &nbsp;&nbsp;<span style="font-size:10px;color:#080">Rif. AML-2026-0891</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

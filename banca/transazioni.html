@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS FINANCIAL GROUP — Transazioni</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>if (!sessionStorage.getItem('nexus_auth')) window.location.replace('index.html');</script>
+
+<nav class="bank-nav">
+    <div class="nav-brand">NEXUS FINANCIAL GROUP</div>
+    <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">Panoramica</a>
+        <a href="conti.html" class="nav-link">Conti</a>
+        <a href="transazioni.html" class="nav-link active">Transazioni</a>
+        <a href="bonifici.html" class="nav-link">Bonifici</a>
+        <a href="profilo.html" class="nav-link">Profilo</a>
+        <a href="index.html" class="nav-link nav-exit"
+           onclick="sessionStorage.removeItem('nexus_auth')">Esci</a>
+    </div>
+</nav>
+
+<div class="page-content">
+
+    <div class="section-label">STORICO</div>
+    <div class="section-title">REGISTRO TRANSAZIONI — APRILE 2026</div>
+
+    <div class="alert-box">
+        [!!] SEGNALAZIONE AUTOMATICA AML: 5 transazioni classificate come "importo anomalo" rilevate
+        nel periodo 14–16/04/2026. Importi compresi tra €4.803.750,00 e €4.872.600,00.
+        Beneficiari: società offshore in giurisdizioni a bassa tassazione. Rif.: AML-2026-0891.
+        Verifica obbligatoria entro 72 ore &mdash; Stato: <span style="color:#ff0">IN CORSO</span>
+    </div>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>ID Transazione</th>
+                <th>Data</th>
+                <th>Conto Origine</th>
+                <th>Beneficiario</th>
+                <th>Causale</th>
+                <th>Importo</th>
+                <th>Stato</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0891</td>
+                <td style="color:#060;white-space:nowrap">14/04/2026</td>
+                <td style="white-space:nowrap">A-GHOST-447</td>
+                <td>
+                    <div style="font-weight:bold;margin-bottom:3px">Cayman Holdings Ltd</div>
+                    <div style="font-size:10px;color:#060">KY-0089 &mdash; Cayman Islands</div>
+                </td>
+                <td style="font-size:11px;color:#0a0">Consulenza strategica Q4</td>
+                <td class="amount-col">€ 4.827.400,00</td>
+                <td><span class="badge badge-ok">ESEGUITA</span></td>
+            </tr>
+            <tr>
+                <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0892</td>
+                <td style="color:#060;white-space:nowrap">14/04/2026</td>
+                <td style="white-space:nowrap">A-GHOST-447</td>
+                <td>
+                    <div style="font-weight:bold;margin-bottom:3px">Meridian Offshore Inc</div>
+                    <div style="font-size:10px;color:#060">BVI-4421 &mdash; British Virgin Islands</div>
+                </td>
+                <td style="font-size:11px;color:#0a0">Royalties licenze IP</td>
+                <td class="amount-col">€ 4.851.200,00</td>
+                <td><span class="badge badge-ok">ESEGUITA</span></td>
+            </tr>
+            <tr>
+                <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0893</td>
+                <td style="color:#060;white-space:nowrap">15/04/2026</td>
+                <td style="white-space:nowrap">A-GHOST-447</td>
+                <td>
+                    <div style="font-weight:bold;margin-bottom:3px">Shadow Capital BV</div>
+                    <div style="font-size:10px;color:#060">NL-7734 &mdash; Paesi Bassi</div>
+                </td>
+                <td style="font-size:11px;color:#0a0">Investimento strutturato</td>
+                <td class="amount-col">€ 4.803.750,00</td>
+                <td><span class="badge badge-ok">ESEGUITA</span></td>
+            </tr>
+            <tr>
+                <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0894</td>
+                <td style="color:#060;white-space:nowrap">15/04/2026</td>
+                <td style="white-space:nowrap">A-GHOST-447</td>
+                <td>
+                    <div style="font-weight:bold;margin-bottom:3px">Specter Assets SA</div>
+                    <div style="font-size:10px;color:#060">LU-2209 &mdash; Lussemburgo</div>
+                </td>
+                <td style="font-size:11px;color:#0a0">Rimborso finanziamento</td>
+                <td class="amount-col">€ 4.838.900,00</td>
+                <td><span class="badge badge-ok">ESEGUITA</span></td>
+            </tr>
+            <tr>
+                <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0895</td>
+                <td style="color:#060;white-space:nowrap">16/04/2026</td>
+                <td style="white-space:nowrap">A-GHOST-447</td>
+                <td>
+                    <div style="font-weight:bold;margin-bottom:3px">Phantom Trust Ltd</div>
+                    <div style="font-size:10px;color:#060">JE-0043 &mdash; Jersey, Isole del Canale</div>
+                </td>
+                <td style="font-size:11px;color:#0a0">Distribuzione utili</td>
+                <td class="amount-col">€ 4.872.600,00</td>
+                <td><span class="badge badge-ok">ESEGUITA</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="table-footer">
+        <span>TRANSAZIONI VISUALIZZATE: 5 &mdash; Periodo: 14/04/2026 – 16/04/2026</span>
+        <span>VOLUME TOTALE: <span style="color:#ff0;font-weight:bold">€ 24.193.850,00</span></span>
+    </div>
+
+</div>
+</body>
+</html>

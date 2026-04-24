@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS FINANCIAL GROUP — Bonifici</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>if (!sessionStorage.getItem('nexus_auth')) window.location.replace('index.html');</script>
+
+<nav class="bank-nav">
+    <div class="nav-brand">NEXUS FINANCIAL GROUP</div>
+    <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">Panoramica</a>
+        <a href="conti.html" class="nav-link">Conti</a>
+        <a href="transazioni.html" class="nav-link">Transazioni</a>
+        <a href="bonifici.html" class="nav-link active">Bonifici</a>
+        <a href="profilo.html" class="nav-link">Profilo</a>
+        <a href="index.html" class="nav-link nav-exit"
+           onclick="sessionStorage.removeItem('nexus_auth')">Esci</a>
+    </div>
+</nav>
+
+<div class="page-content">
+
+    <div class="section-label">DISPOSIZIONI</div>
+    <div class="section-title">NUOVO BONIFICO</div>
+
+    <div class="alert-box">
+        [!!] ACCESSO TEMPORANEAMENTE LIMITATO: a causa della verifica AML in corso (rif. AML-2026-0891),
+        le disposizioni di bonifico in uscita sono sospese fino al completamento dell'istruttoria.
+        Tempistica stimata: 48–72 ore lavorative. Per urgenze contattare il referente di compliance.
+    </div>
+
+    <div class="form-section">
+        <div class="form-section-title">Dati beneficiario</div>
+        <div class="form-grid">
+            <div class="form-group">
+                <label class="form-label">IBAN Beneficiario</label>
+                <input type="text" class="form-input" placeholder="XX00 0000 0000 0000 0000 00" disabled>
+            </div>
+            <div class="form-group">
+                <label class="form-label">BIC / SWIFT</label>
+                <input type="text" class="form-input" placeholder="XXXXXXXX" disabled>
+            </div>
+            <div class="form-group form-group-full">
+                <label class="form-label">Nome o Ragione Sociale Beneficiario</label>
+                <input type="text" class="form-input" placeholder="Ragione sociale o nome completo" disabled>
+            </div>
+            <div class="form-group form-group-full">
+                <label class="form-label">Banca Beneficiaria</label>
+                <input type="text" class="form-input" placeholder="Istituto di credito" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <div class="form-section-title">Dettagli transazione</div>
+        <div class="form-grid">
+            <div class="form-group">
+                <label class="form-label">Conto Addebitante</label>
+                <select class="form-input" disabled>
+                    <option>A-GHOST-447 &mdash; € 8.940.241,22</option>
+                    <option>B-SPECTER-12 &mdash; € 11.204.800,00</option>
+                    <option>C-WRAITH-99 &mdash; € 8.322.850,00</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Importo (EUR)</label>
+                <input type="text" class="form-input" placeholder="0,00" disabled>
+            </div>
+            <div class="form-group form-group-full">
+                <label class="form-label">Causale</label>
+                <input type="text" class="form-input" placeholder="Descrizione operazione (max 140 caratteri)" disabled>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Data Valuta</label>
+                <input type="text" class="form-input" placeholder="GG/MM/AAAA" disabled>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Priorità</label>
+                <select class="form-input" disabled>
+                    <option>STANDARD (2–3 giorni lavorativi)</option>
+                    <option>URGENTE (stesso giorno)</option>
+                    <option>SEPA INSTANT (&lt; 10 secondi)</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="submit-btn" disabled>DISPONI BONIFICO</button>
+    </div>
+
+</div>
+</body>
+</html>

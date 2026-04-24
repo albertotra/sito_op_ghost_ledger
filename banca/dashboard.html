@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS FINANCIAL GROUP — Panoramica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script>if (!sessionStorage.getItem('nexus_auth')) window.location.replace('index.html');</script>
+
+<nav class="bank-nav">
+    <div class="nav-brand">NEXUS FINANCIAL GROUP</div>
+    <div class="nav-links">
+        <a href="dashboard.html" class="nav-link active">Panoramica</a>
+        <a href="conti.html" class="nav-link">Conti</a>
+        <a href="transazioni.html" class="nav-link">Transazioni</a>
+        <a href="bonifici.html" class="nav-link">Bonifici</a>
+        <a href="profilo.html" class="nav-link">Profilo</a>
+        <a href="index.html" class="nav-link nav-exit"
+           onclick="sessionStorage.removeItem('nexus_auth')">Esci</a>
+    </div>
+</nav>
+
+<div class="page-content">
+
+    <div class="section-label">PORTALE OPERATORE — 447</div>
+    <div class="section-title">PANORAMICA CONTI</div>
+
+    <div class="alert-box">
+        [!!] ATTENZIONE: 5 transazioni di importo anomalo registrate nel periodo 14–16/04/2026.
+        Importi compresi tra €4.803.750 e €4.872.600. Verifica AML obbligatoria entro 72 ore.
+        Rif. interno: AML-2026-0891. Contattare il referente di compliance.
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-label">Saldo Totale Consolidato</div>
+            <div class="card-value large">€ 28.467.891,22</div>
+            <div class="card-sub">↑ +2,4% rispetto al mese precedente</div>
+        </div>
+        <div class="card">
+            <div class="card-label">Conti Attivi</div>
+            <div class="card-value">3</div>
+            <div class="card-sub">Su 3 conti registrati</div>
+        </div>
+        <div class="card">
+            <div class="card-label">Transazioni Aprile 2026</div>
+            <div class="card-value">8</div>
+            <div class="card-sub">5 con importo &gt; €1.000.000</div>
+        </div>
+        <div class="card">
+            <div class="card-label">Ultimo Accesso</div>
+            <div class="card-value" style="font-size:15px">14/04/2026</div>
+            <div class="card-sub">03:47 UTC &mdash; IP: 185.242.xxx.xxx</div>
+        </div>
+    </div>
+
+    <div class="section-label">SALDI</div>
+    <div class="section-title">RIEPILOGO PER CONTO</div>
+
+    <div class="section-box">
+        <div class="section-box-header">Conti operativi registrati</div>
+        <div class="section-box-body">
+
+            <div class="account-row">
+                <div>
+                    <div class="account-id">A-GHOST-447</div>
+                    <div class="account-desc">Conto Principale — Operativo</div>
+                    <div class="account-iban">IBAN: NX47 0000 4470 0012 3456 78 &mdash; BIC: NXFGXX22</div>
+                </div>
+                <div>
+                    <div class="account-balance">€ 8.940.241,22</div>
+                    <div class="account-iban" style="text-align:right">EUR &mdash; Nodo: GHOST-CLUSTER</div>
+                    <div style="text-align:right;margin-top:6px"><span class="badge badge-ok">ATTIVO</span></div>
+                </div>
+            </div>
+
+            <div class="account-row">
+                <div>
+                    <div class="account-id">B-SPECTER-12</div>
+                    <div class="account-desc">Conto Offshore — Cayman Islands</div>
+                    <div class="account-iban">IBAN: KY12 SPEC 0000 0012 0044 21 &mdash; BIC: SPECKY1X</div>
+                </div>
+                <div>
+                    <div class="account-balance">€ 11.204.800,00</div>
+                    <div class="account-iban" style="text-align:right">EUR &mdash; Nodo: SPECTER-CLUSTER</div>
+                    <div style="text-align:right;margin-top:6px"><span class="badge badge-ok">ATTIVO</span></div>
+                </div>
+            </div>
+
+            <div class="account-row">
+                <div>
+                    <div class="account-id">C-WRAITH-99</div>
+                    <div class="account-desc">Conto Riserva — Lussemburgo</div>
+                    <div class="account-iban">IBAN: LU99 0000 9900 0087 3345 99 &mdash; BIC: WRAITHLUX</div>
+                </div>
+                <div>
+                    <div class="account-balance">€ 8.322.850,00</div>
+                    <div class="account-iban" style="text-align:right">EUR &mdash; Nodo: WRAITH-CLUSTER</div>
+                    <div style="text-align:right;margin-top:6px"><span class="badge badge-ok">ATTIVO</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
