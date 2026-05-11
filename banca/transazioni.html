@@ -44,6 +44,7 @@
                 <th>Causale</th>
                 <th>Importo</th>
                 <th>Stato</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -58,6 +59,7 @@
                 <td style="font-size:11px;color:#0a0">Consulenza strategica Q4</td>
                 <td class="amount-col">€ 4.827.400,00</td>
                 <td><span class="badge badge-ok">ESEGUITA</span></td>
+                <td><button class="btn-modifica" onclick="openModal('TRF-2026-0891')">MODIFICA</button></td>
             </tr>
             <tr>
                 <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0892</td>
@@ -70,6 +72,7 @@
                 <td style="font-size:11px;color:#0a0">Royalties licenze IP</td>
                 <td class="amount-col">€ 4.851.200,00</td>
                 <td><span class="badge badge-ok">ESEGUITA</span></td>
+                <td><button class="btn-modifica" onclick="openModal('TRF-2026-0892')">MODIFICA</button></td>
             </tr>
             <tr>
                 <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0893</td>
@@ -82,6 +85,7 @@
                 <td style="font-size:11px;color:#0a0">Investimento strutturato</td>
                 <td class="amount-col">€ 4.803.750,00</td>
                 <td><span class="badge badge-ok">ESEGUITA</span></td>
+                <td><button class="btn-modifica" onclick="openModal('TRF-2026-0893')">MODIFICA</button></td>
             </tr>
             <tr>
                 <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0894</td>
@@ -94,6 +98,7 @@
                 <td style="font-size:11px;color:#0a0">Rimborso finanziamento</td>
                 <td class="amount-col">€ 4.838.900,00</td>
                 <td><span class="badge badge-ok">ESEGUITA</span></td>
+                <td><button class="btn-modifica" onclick="openModal('TRF-2026-0894')">MODIFICA</button></td>
             </tr>
             <tr>
                 <td style="color:#050;font-size:11px;letter-spacing:0.5px">TRF-2026-0895</td>
@@ -106,6 +111,7 @@
                 <td style="font-size:11px;color:#0a0">Distribuzione utili</td>
                 <td class="amount-col">€ 4.872.600,00</td>
                 <td><span class="badge badge-ok">ESEGUITA</span></td>
+                <td><button class="btn-modifica" onclick="openModal('TRF-2026-0895')">MODIFICA</button></td>
             </tr>
         </tbody>
     </table>
@@ -116,5 +122,139 @@
     </div>
 
 </div>
+
+<!-- ── Modale modifica transazione ── -->
+<div id="modal-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:1000;align-items:center;justify-content:center;">
+    <div style="background:#000;border:1px solid #0c0;border-radius:3px;box-shadow:0 0 32px rgba(0,255,0,0.25);width:480px;max-width:95vw;font-family:'Courier New',monospace;">
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid rgba(0,255,0,0.15);">
+            <div>
+                <div style="font-size:9px;letter-spacing:3px;color:#060;text-transform:uppercase;margin-bottom:3px">Gestione avanzata</div>
+                <div style="font-size:13px;font-weight:bold;color:#0f0;letter-spacing:1px">OPERAZIONI TRANSAZIONE</div>
+                <div id="modal-txid" style="font-size:10px;color:#040;margin-top:3px;letter-spacing:0.5px"></div>
+            </div>
+            <button onclick="closeModal()" style="background:none;border:none;color:#060;font-size:18px;cursor:pointer;font-family:monospace;line-height:1;padding:4px 8px;" onmouseover="this.style.color='#f55'" onmouseout="this.style.color='#060'">[X]</button>
+        </div>
+
+        <div style="padding:20px;display:flex;flex-direction:column;gap:10px;">
+
+            <button class="modal-action-btn" onclick="invertTransaction()">
+                <span style="color:#ff0;margin-right:8px">&darr;&uarr;</span> Inverti transazione
+            </button>
+
+            <button class="modal-action-btn" onclick="closeModal()">
+                <span style="color:#0a0;margin-right:8px">&#9998;</span> Modifica causale
+            </button>
+
+            <button class="modal-action-btn" onclick="closeModal()">
+                <span style="color:#0a0;margin-right:8px">&#128100;</span> Cambia intestatario beneficiario
+            </button>
+
+            <button class="modal-action-btn" onclick="closeModal()">
+                <span style="color:#0a0;margin-right:8px">&#128274;</span> Cifra dettagli operazione
+            </button>
+
+            <button class="modal-action-btn modal-action-btn--danger" onclick="closeModal()">
+                <span style="margin-right:8px">&#9888;</span> Rimuovi dai log AML
+            </button>
+
+        </div>
+
+        <div id="modal-feedback" style="display:none;margin:0 20px 20px;padding:10px 14px;border-radius:2px;font-size:12px;font-weight:bold;letter-spacing:1px;text-align:center;"></div>
+
+    </div>
+</div>
+
+<style>
+.btn-modifica {
+    background: transparent;
+    border: 1px solid rgba(0,255,0,0.3);
+    color: #0a0;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+.btn-modifica:hover {
+    border-color: #0f0;
+    color: #0f0;
+    background: rgba(0,255,0,0.06);
+    box-shadow: 0 0 8px rgba(0,255,0,0.15);
+}
+.modal-action-btn {
+    background: rgba(0,12,0,0.6);
+    border: 1px solid rgba(0,255,0,0.18);
+    color: #0d0;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding: 11px 16px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: left;
+    transition: all 0.15s;
+    width: 100%;
+}
+.modal-action-btn:hover {
+    background: rgba(0,255,0,0.07);
+    border-color: rgba(0,255,0,0.4);
+    color: #0f0;
+}
+.modal-action-btn--danger {
+    border-color: rgba(255,60,60,0.25);
+    color: #c44;
+}
+.modal-action-btn--danger:hover {
+    background: rgba(255,60,60,0.06);
+    border-color: rgba(255,60,60,0.5);
+    color: #f77;
+}
+#modal-overlay { display: none; }
+#modal-overlay.open { display: flex; }
+</style>
+
+<script>
+let currentTxId = null;
+
+function openModal(txId) {
+    currentTxId = txId;
+    document.getElementById('modal-txid').textContent = 'RIF: ' + txId;
+    document.getElementById('modal-feedback').style.display = 'none';
+    document.getElementById('modal-overlay').classList.add('open');
+}
+
+function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    currentTxId = null;
+}
+
+function invertTransaction() {
+    const fb = document.getElementById('modal-feedback');
+    fb.style.display = 'block';
+    if (currentTxId === 'TRF-2026-0894') {
+        fb.style.background = 'rgba(0,80,0,0.4)';
+        fb.style.border = '1px solid rgba(0,200,0,0.4)';
+        fb.style.color = '#0f0';
+        fb.textContent = '[OK] Operazione completata — Transazione invertita e fondi restituiti al conto di origine.';
+    } else {
+        fb.style.background = 'rgba(80,0,0,0.4)';
+        fb.style.border = '1px solid rgba(200,0,0,0.35)';
+        fb.style.color = '#f55';
+        fb.textContent = '[ERRORE] Impossibile invertire — La transazione risulta già consolidata sui registri del beneficiario. Contattare il desk AML.';
+    }
+}
+
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
+</script>
+
 </body>
 </html>
